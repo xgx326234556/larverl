@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace App\Common;
 
 use Illuminate\Foundation\Http\Middleware\TrimStrings as Middleware;
 
@@ -15,5 +15,4 @@ class TrimStrings extends Middleware
         'password',
         'password_confirmation',
     ];
-
 }

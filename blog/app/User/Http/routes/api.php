@@ -13,4 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('user', 'UserController@user');
+Route::group(['middleware' => ['token']], function () {
+    Route::get('user', 'UserController@user');
+});

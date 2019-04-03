@@ -13,4 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('order', 'OrderController@order');
+Route::group(['middleware' => ['token','isPay']], function () {
+    Route::get('order', 'OrderController@order');
+});
+
