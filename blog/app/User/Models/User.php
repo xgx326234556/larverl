@@ -1,5 +1,7 @@
 <?php
+
 namespace App\User\Models;
+
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -9,5 +11,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class User extends Model
 {
-   protected  $fillable = ['name','age','sex'];
+    public $timestamps = true;  // 自动维护创建时间
+    protected $dateFormat = 'U'; // 时间储存格式
+    protected $table = 'user'; // 数据库表名
+    protected $fillable = ['name', 'age', 'sex']; // 数据库表字段
 }

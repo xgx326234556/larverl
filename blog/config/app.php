@@ -233,7 +233,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
     ],
-    'generator'=>[
+   /* 'generator'=>[
         'basePath'=>app()->path(),
         'rootNamespace'=>'App\\',
         'paths'=>[
@@ -247,6 +247,6 @@ return [
             'provider'     => 'RepositoryServiceProvider',
             'criteria'     => 'Criteria',
         ]
-    ]
+    ]*/
 
 ];

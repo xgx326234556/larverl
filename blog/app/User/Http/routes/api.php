@@ -14,5 +14,6 @@ use Illuminate\Http\Request;
 */
 
 Route::group(['middleware' => ['token']], function () {
-    Route::get('user', 'UserController@user');
+    Route::get('user-one/{id}', 'UserController@findUserOne');
+    Route::post('user-one', 'UserController@addUserOne');
 });
