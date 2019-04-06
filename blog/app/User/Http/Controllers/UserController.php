@@ -13,6 +13,6 @@ class UserController
     }
 
     public function user(){
-       $this->userService->user();
+      $this->userService->user();
    }
 }

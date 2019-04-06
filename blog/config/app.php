@@ -163,6 +163,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Prettus\Repository\Providers\RepositoryServiceProvider::class,
 
         /*
          * Package Services Providers...
@@ -232,5 +233,20 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
     ],
+    'generator'=>[
+        'basePath'=>app()->path(),
+        'rootNamespace'=>'App\\',
+        'paths'=>[
+            'models'       => 'Entities',
+            'repositories' => 'Repositories',
+            'interfaces'   => 'Repositories',
+            'transformers' => 'Transformers',
+            'presenters'   => 'Presenters',
+            'validators'   => 'Validators',
+            'controllers'  => 'Http/Controllers',
+            'provider'     => 'RepositoryServiceProvider',
+            'criteria'     => 'Criteria',
+        ]
+    ]
 
 ];

@@ -1,18 +1,26 @@
 <?php
 
 namespace App\User\Services;
-use App\User\Models\UserModel;
+use App\User\Repository\UserRepository;
 
+/**
+ * 服务层主要实现  业务逻辑
+ * Class UserService
+ * @package App\User\Services
+ */
 class UserService{
 
-    protected $userModel;
-    public function __construct(UserModel $userModel)
+    protected $userRepository;
+    public function __construct(UserRepository $userRepository)
     {
-        $this->userModel = $userModel;
+        $this->userRepository = $userRepository;
     }
 
     public function user(){
 
-        $this->userModel->add();
+     dd(
+         $this->userRepository->find(1)->toArray(),
+         $this->userRepository->userCont()
+     ) ;
     }
 }
