@@ -14,7 +14,9 @@ class UserValidator extends LaravelValidator
             'sex'=> 'integer'
         ],
         ValidatorInterface::RULE_UPDATE => [
-            'name' => 'required'
+            'name' => 'required',
+            'age'  => 'integer',
+            'sex'=> 'integer'
         ]
     ];
     protected $messages = [

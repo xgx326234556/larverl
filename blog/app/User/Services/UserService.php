@@ -3,7 +3,6 @@
 namespace App\User\Services;
 use App\User\Repository\UserRepository;
 use App\User\Validator\UserValidator;
-use Prettus\Validator\Contracts\ValidatorInterface;
 use Prettus\Validator\Exceptions\ValidatorException;
 
 /**
@@ -32,19 +31,17 @@ class UserService{
      * @param $name
      * @param $age
      * @param $sex
-     * @return mixed
+     * @return array|mixed
      */
     public function addUserOne($name,$age,$sex){
         $user['name'] = $name;
         $user['age'] = $age;
         $user['sex'] = $sex;
         try{
-            $this->userValidator->with($user)->passesOrFail( ValidatorInterface::RULE_CREATE );
             $res = $this->userRepository->create($user);
         }catch (ValidatorException $e){
-           dd($e->getMessage());
+            return $e->getMessageBag()->getMessages();
         }
         return $res;
-
     }
 }
