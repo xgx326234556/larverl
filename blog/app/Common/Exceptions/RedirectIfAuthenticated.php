@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Common;
+namespace App\Common\Exceptions;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;

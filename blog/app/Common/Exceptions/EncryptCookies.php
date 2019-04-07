@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Common;
+namespace App\Common\Exceptions;
 
 use Illuminate\Cookie\Middleware\EncryptCookies as Middleware;
 

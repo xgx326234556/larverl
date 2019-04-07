@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Exceptions;
+namespace App\Common\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
@@ -36,7 +36,6 @@ class Handler extends ExceptionHandler
      */
     public function report(Exception $exception)
     {
-        dd(4343453454);
         parent::report($exception);
     }
 

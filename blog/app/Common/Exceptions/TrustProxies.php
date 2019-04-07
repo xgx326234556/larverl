@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Common;
+namespace App\Common\Exceptions;
 
 use Illuminate\Http\Request;
 use Fideloper\Proxy\TrustProxies as Middleware;
