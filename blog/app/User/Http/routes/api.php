@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
+Route::post('token', 'TokenController@token');
 Route::group(['middleware' => ['token']], function () {
     Route::get('user-one/{id}', 'UserController@findUserOne');
     Route::post('user-one', 'UserController@addUserOne');
