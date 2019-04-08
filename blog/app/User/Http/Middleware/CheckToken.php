@@ -1,12 +1,27 @@
 <?php
 namespace App\User\Http\Middleware;
+use App\User\Repository\UserRepository;
 use Closure;
+use Illuminate\Http\Request;
+
 class CheckToken{
-    public function handle($request,Closure $next){
-        if(1==1){
-            return $next($request);
+    protected $userRepository;
+    public function __construct(UserRepository $userRepository)
+    {
+        $this->userRepository = $userRepository;
+    }
+
+    public function handle(Request $request,Closure $next){
+        $token = $request->header('token');
+        if($token){
+            $user = $this->userRepository->findWhere(['token'=>$token])->first();
+            if($user){
+                return $next($request);
+            }else{
+                dd('用户不存在');
+            }
         }else{
-           dd("没有登陆") ;
+            dd("没有token") ;
         }
     }
 }

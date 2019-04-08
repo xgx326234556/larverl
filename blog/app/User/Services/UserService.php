@@ -13,12 +13,9 @@ use Prettus\Validator\Exceptions\ValidatorException;
 class UserService{
 
     protected $userRepository;
-    protected $userValidator;
-
-    public function __construct(UserRepository $userRepository,UserValidator $userValidator)
+    public function __construct(UserRepository $userRepository)
     {
         $this->userRepository = $userRepository;
-        $this->userValidator = $userValidator;
     }
 
     public function findUserOne($id)

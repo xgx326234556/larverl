@@ -1,26 +1,37 @@
 <?php
 namespace App\User\Services;
-use Tymon\JWTAuth\Exceptions\JWTException;
+use App\User\Repository\UserRepository;
+use Prettus\Validator\Exceptions\ValidatorException;
 use Tymon\JWTAuth\JWTAuth;
 
-class TokenService{
+class TokenService
+{
     protected  $JWTAuth;
-    public function __construct(JWTAuth $JWTAuth)
+    protected  $userRepository;
+    public function __construct(JWTAuth $JWTAuth,UserRepository $userRepository)
     {
         $this->JWTAuth = $JWTAuth;
+        $this->userRepository = $userRepository;
     }
 
+    /**
+     * @param $name
+     * @param $password
+     * @return array|string
+     */
     public function token($name,$password)
     {
-        $credentials['name'] = $name;
-        $credentials['password'] = $password;
-        try {
-            if (!$token = $this->JWTAuth->attempt($credentials)) {
-                return response()->json(['error' => 'invalid_credentials'], 401);
+        $user = $this->userRepository->findWhere(['name'=>$name,'password'=>$password])->first();
+        try{
+            if($user){
+                $token = $this->JWTAuth->fromUser($user);
+                $this->userRepository->update(['token'=>$token],$user->id);
+                return $token;
+            }else{
+                return '用户信息错误';
             }
-        } catch (JWTException $e) {
-            return response()->json(['error' => 'could_not_create_token'], 500);
+        }catch (ValidatorException $e){
+            return $e->getMessageBag()->getMessages();
         }
-        return response()->json(compact('token'));
     }
 }

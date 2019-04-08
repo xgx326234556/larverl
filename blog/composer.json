@@ -11,7 +11,7 @@
         "laravel/tinker": "~1.0",
         "prettus/l5-repository": "^2.6",
         "prettus/laravel-validation": "1.1.*",
-        "tymon/jwt-auth": "^0.5.12"
+        "tymon/jwt-auth": "1.0.0-rc.1"
     },
     "require-dev": {
         "filp/whoops": "~2.0",

@@ -14,9 +14,7 @@ class UserValidator extends LaravelValidator
             'sex'=> 'required|integer'
         ],
         ValidatorInterface::RULE_UPDATE => [
-            'name' => 'required',
-            'age'  => 'required|integer',
-            'sex'=> 'required|integer'
+            //  不想修改的字段也会被检查  有点鸡助
         ]
     ];
     protected $messages = [
