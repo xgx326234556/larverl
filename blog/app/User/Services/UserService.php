@@ -41,4 +41,9 @@ class UserService{
         }
         return $res;
     }
+
+    public function userList(){
+        $users = $this->userRepository->findWhereIn('id',[1,2,3,4,5,6]);
+        return response($users,200);
+    }
 }

@@ -18,10 +18,15 @@ class UserController
    }
 
    public function addUserOne(Request $request){
+        dd(42342423);
        $name = $request->get('name');
        $age = $request->get('age');
        $sex = $request->get('sex');
        $res = $this->userService->addUserOne($name,$age,$sex);
        return $res;
+   }
+
+   public function userList(){
+       return $this->userService->userList();
    }
 }

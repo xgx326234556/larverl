@@ -13,4 +13,6 @@ Route::post('token', 'TokenController@token');
 Route::group(['middleware' => ['token']], function () {
     Route::get('user-one/{id}', 'UserController@findUserOne');
     Route::post('user-one', 'UserController@addUserOne');
+
 });
+Route::get('user-list', 'UserController@userList');

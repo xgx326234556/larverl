@@ -21,6 +21,7 @@ class Kernel extends HttpKernel
         \App\Common\Exceptions\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \App\Common\Exceptions\TrustProxies::class,
+        \App\Common\EnableCrossRequestMiddleware::class,
     ];
 
     /**
