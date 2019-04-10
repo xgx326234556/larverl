@@ -1,8 +1,8 @@
 <?php
 
 namespace App\User\Services;
+use App\Common\Repository\RedisRepository;
 use App\User\Repository\UserRepository;
-use App\User\Validator\UserValidator;
 use Prettus\Validator\Exceptions\ValidatorException;
 
 /**
@@ -13,9 +13,14 @@ use Prettus\Validator\Exceptions\ValidatorException;
 class UserService{
 
     protected $userRepository;
-    public function __construct(UserRepository $userRepository)
+    protected $redisRepository;
+    public function __construct(
+        UserRepository $userRepository,
+        RedisRepository $redisRepository
+    )
     {
         $this->userRepository = $userRepository;
+        $this->redisRepository = $redisRepository;
     }
 
     public function findUserOne($id)
@@ -45,5 +50,11 @@ class UserService{
     public function userList(){
         $users = $this->userRepository->findWhereIn('id',[1,2,3,4,5,6]);
         return response($users,200);
+    }
+
+    public function userRedis($name,$age)
+    {
+            $array = ['name'=>$name,'age'=>$age];
+            $this->redisRepository->setRedis($array);
     }
 }

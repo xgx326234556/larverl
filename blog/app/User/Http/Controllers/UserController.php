@@ -29,4 +29,10 @@ class UserController
    public function userList(){
        return $this->userService->userList();
    }
+
+   public function userRedis(Request $request){
+        $name = $request->get('name');
+        $age = $request->get('age');
+        $this->userService->userRedis($name,$age);
+   }
 }

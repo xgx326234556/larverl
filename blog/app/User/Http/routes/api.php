@@ -16,3 +16,4 @@ Route::group(['middleware' => ['token']], function () {
 
 });
 Route::get('user-list', 'UserController@userList');
+Route::post('user-redis', 'UserController@userRedis');
