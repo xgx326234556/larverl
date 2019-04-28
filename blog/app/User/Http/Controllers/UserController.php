@@ -4,6 +4,7 @@ namespace App\User\Http\Controllers;
 use App\User\Services\UserService;
 use Illuminate\Http\Request;
 
+
 class UserController
 {
     protected $userService;
@@ -27,9 +28,6 @@ class UserController
    }
 
    public function userList(){
-       include  'App\Common\Services\SwooleProcess';
-       $swooleProcess = new SwooleProcess();
-       dd($swooleProcess->SwooleProcess());
        return $this->userService->userList();
    }
 
