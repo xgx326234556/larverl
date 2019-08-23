@@ -166,6 +166,7 @@ return [
         Prettus\Repository\Providers\RepositoryServiceProvider::class,
         Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
         Barryvdh\Cors\ServiceProvider::class,
+        Spatie\Permission\PermissionServiceProvider::class,
         /*
          * Package Services Providers...
          */
@@ -183,6 +184,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Order\Providers\EventServiceProvider::class,
         App\Order\Providers\RouteServiceProvider::class,
+
 
     ],
 

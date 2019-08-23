@@ -13,7 +13,10 @@ Route::post('token', 'TokenController@token');
 Route::group(['middleware' => ['token']], function () {
     Route::get('user-one/{id}', 'UserController@findUserOne');
     Route::post('user-one', 'UserController@addUserOne');
-
+    Route::get('user-list', 'UserController@userList');
+    Route::post('user-redis', 'UserController@userRedis');
+    Route::post('role-one', 'RolesController@addRole');
+    Route::post('permission-one', 'PermissionController@addPermission');
+    Route::get('permission', 'RolesController@givePermission');
 });
-Route::get('user-list', 'UserController@userList');
-Route::post('user-redis', 'UserController@userRedis');
+

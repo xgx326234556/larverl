@@ -2,7 +2,8 @@
 
 namespace App\User\Services;
 use App\Common\Repository\RedisRepository;
-use App\User\Repository\UserRepository;
+use App\User\Repositorys\RolesRepository;
+use App\User\Repositorys\UserRepository;
 use Prettus\Validator\Exceptions\ValidatorException;
 
 /**
@@ -48,7 +49,7 @@ class UserService{
     }
 
     public function userList(){
-        $users = $this->userRepository->findWhereIn('id',[1,2,3,4,5,6]);
+        $users = $this->userRepository->find(1);
         return response($users,200);
     }
 
@@ -56,5 +57,10 @@ class UserService{
     {
             $array = ['name'=>$name,'age'=>$age];
             $this->redisRepository->setRedis($array);
+    }
+
+    public function addRole()
+    {
+        $this->userRepository->roles();
     }
 }

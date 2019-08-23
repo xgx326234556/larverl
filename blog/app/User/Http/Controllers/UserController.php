@@ -2,13 +2,16 @@
 
 namespace App\User\Http\Controllers;
 
+use App\User\Services\RolesService;
 use App\User\Services\UserService;
 use Illuminate\Http\Request;
 
 class UserController
 {
     protected $userService;
-    public function __construct(UserService $userService)
+    public function __construct(
+        UserService $userService
+    )
     {
         $this->userService = $userService;
     }
@@ -27,6 +30,8 @@ class UserController
    }
 
    public function userList(){
+      /*$res =  \DB::connection('mysql_dearedu_my')->table('users')->first();
+      dd($res);*/
        return $this->userService->userList();
    }
 
@@ -34,5 +39,9 @@ class UserController
         $name = $request->get('name');
         $age = $request->get('age');
         $this->userService->userRedis($name,$age);
+   }
+   public function addRole()
+   {
+
    }
 }

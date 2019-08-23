@@ -1,6 +1,6 @@
 <?php
 namespace App\User\Http\Middleware;
-use App\User\Repository\UserRepository;
+use App\User\Repositorys\UserRepository;
 use Closure;
 use Illuminate\Http\Request;
 

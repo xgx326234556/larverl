@@ -1,6 +1,6 @@
 <?php
 namespace App\User\Services;
-use App\User\Repository\UserRepository;
+use App\User\Repositorys\UserRepository;
 use Prettus\Validator\Exceptions\ValidatorException;
 use Tymon\JWTAuth\JWTAuth;
 
