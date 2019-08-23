@@ -19,5 +19,6 @@ class EnableCrossRequestMiddleware
         $response = $next($request);
         //$response->headers->add(['Access-Control-Allow-Headers' => 'Origin, Content-Type, Cookie,X-CSRF-TOKEN, Accept,Authorization,token,cache-control']);
         return $response;
+
     }
 }
